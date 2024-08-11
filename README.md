@@ -11,6 +11,11 @@
 git clone https://github.com/kumarstack55/vagrant-debian-bookworm64-docker.git
 Set-Location .\vagrant-debian-bookworm64-docker
 
+# Windows 環境に bash スクリプトを配置する。
+# そのため、 lf を crlf に変換しないようにする。
+# https://stackoverflow.com/a/20653073
+git config core.autocrlf input
+
 #vagrant destroy -f
 
 #vagrant box list
