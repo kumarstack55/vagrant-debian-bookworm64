@@ -1,4 +1,6 @@
 #!/bin/bash
+set -x
+
 update-alternatives --set editor /usr/bin/vim.tiny
 
 apt-get update
