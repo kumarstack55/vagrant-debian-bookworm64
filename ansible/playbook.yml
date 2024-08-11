@@ -1,5 +1,13 @@
 - hosts: localhost
   tasks:
+    - name: Ensure that git is installed.
+      apt:
+        name: git
+      become: yes
+    - name: Ensure that vim is installed.
+      apt:
+        name: vim
+      become: yes
     - name: Ensure that jq is installed.
       apt:
         name: jq
