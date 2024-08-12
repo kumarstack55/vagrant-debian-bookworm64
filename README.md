@@ -11,8 +11,12 @@
 git clone https://github.com/kumarstack55/vagrant-debian-bookworm64-docker.git
 Set-Location .\vagrant-debian-bookworm64-docker
 
-# Windows 環境に bash スクリプトを配置する。
-# そのため、 lf を crlf に変換しないようにする。
+# リポジトリへ格納時 crlf を lf に変換し、リポジトリから取得時に変換しない。
+# 理由:
+# このリポジトリは Windows 環境で bash スクリプトを配置する。
+# 配置されたスクリプトは vagrant によって共有され Linux から実行される。
+# スクリプトが正常に動作するよう、リポジトリから取得時に lf を crlf に
+# 変換しないようにするため。
 # https://stackoverflow.com/a/20653073
 git config core.autocrlf input
 
