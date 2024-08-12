@@ -24,6 +24,15 @@ git config core.autocrlf input
 vagrant up
 ```
 
+## 参考
+
+### キーボード・レイアウトを変更する
+
+```bash
+sudo dpkg-reconfigure keyboard-configuration
+    # Generic 105-key PC - Japanese
+```
+
 ## LICENSE
 
 MIT
