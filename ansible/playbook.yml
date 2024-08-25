@@ -8,9 +8,9 @@
         - git
         - vim
         - jq
-        - mlocate
+        - plocate
 
-    - name: utils | Ensure that mlocate database exists.
+    - name: utils | Ensure that plocate database exists.
       ansible.builtin.shell:
         cmd: updatedb
       become: yes
