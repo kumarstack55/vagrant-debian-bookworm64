@@ -1,0 +1,16 @@
+- name: Poetry | Ensure that pipx is installed.
+  ansible.builtin.apt:
+    name: pipx
+  become: yes
+
+- name: Poetry | Ensure that poetry is installed.
+  ansible.builtin.shell:
+    cmd: pipx install poetry
+    creates: "$HOME/.local/bin/poetry"
+
+- name: Poetry | Ensure that poetry path is configured.
+  ansible.builtin.lineinfile:
+    line: 'export PATH="/home/vagrant/.local/bin:$PATH"'
+    path: $HOME/.bash_profile
+    create: true
+    backup: true

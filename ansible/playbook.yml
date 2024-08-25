@@ -1,34 +1,6 @@
 - hosts: localhost
   tasks:
-    - name: utils | Ensure that some utils is installed.
-      ansible.builtin.apt:
-        name: "{{ item }}"
-      become: yes
-      loop:
-        - git
-        - vim
-        - jq
-        - plocate
-
-    - name: utils | Ensure that plocate database exists.
-      ansible.builtin.shell:
-        cmd: updatedb
-        creates: /var/lib/plocate/plocate.db
-      become: yes
-
-    - name: Poetry | Ensure that pipx is installed.
-      ansible.builtin.apt:
-        name: pipx
-      become: yes
-
-    - name: Poetry | Ensure that poetry is installed.
-      ansible.builtin.shell:
-        cmd: pipx install poetry
-        creates: "$HOME/.local/bin/poetry"
-
-    - name: Poetry | Ensure that poetry path is configured.
-      ansible.builtin.lineinfile:
-        line: 'export PATH="/home/vagrant/.local/bin:$PATH"'
-        path: $HOME/.bash_profile
-        create: true
-        backup: true
+    - ansible.builtin.import_tasks:
+        file: utils.yml
+    - ansible.builtin.import_tasks:
+        file: poetry.yml

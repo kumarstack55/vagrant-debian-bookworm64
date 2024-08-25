@@ -1,0 +1,15 @@
+- name: utils | Ensure that some utils is installed.
+  ansible.builtin.apt:
+    name: "{{ item }}"
+  become: yes
+  loop:
+    - git
+    - vim
+    - jq
+    - plocate
+
+- name: utils | Ensure that plocate database exists.
+  ansible.builtin.shell:
+    cmd: updatedb
+    creates: /var/lib/plocate/plocate.db
+  become: yes
