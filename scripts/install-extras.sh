@@ -13,6 +13,4 @@ if [[ ! -f /.install-extras ]]; then
     export ANSIBLE_INVENTORY_UNPARSED_WARNING=False
     ansible-playbook --diff /vagrant/ansible/playbook.yml || die
   )
-
-  sudo touch /.install-extras || die
 fi
