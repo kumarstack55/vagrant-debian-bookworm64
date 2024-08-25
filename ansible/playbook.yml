@@ -16,9 +16,14 @@
         creates: /var/lib/plocate/plocate.db
       become: yes
 
+    - name: Poetry | Ensure that pipx is installed.
+      ansible.builtin.apt:
+        name: pipx
+      become: yes
+
     - name: Poetry | Ensure that poetry is installed.
       ansible.builtin.shell:
-        cmd: curl -sSL https://install.python-poetry.org | python3 -
+        cmd: pipx install poetry
         creates: "$HOME/.local/bin/poetry"
 
     - name: Poetry | Ensure that poetry path is configured.
