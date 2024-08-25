@@ -13,8 +13,8 @@
     - name: utils | Ensure that plocate database exists.
       ansible.builtin.shell:
         cmd: updatedb
+        creates: /var/lib/plocate/plocate.db
       become: yes
-      when: apt_mlocate.changed
 
     - name: Poetry | Ensure that poetry is installed.
       ansible.builtin.shell:
