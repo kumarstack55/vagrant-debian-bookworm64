@@ -8,12 +8,7 @@
         - git
         - vim
         - jq
-
-    - name: utils | Ensure that mlocate is installed.
-      ansible.builtin.apt:
-        name: mlocate
-      become: yes
-      register: apt_mlocate
+        - mlocate
 
     - name: utils | Ensure that mlocate database exists.
       ansible.builtin.shell:
