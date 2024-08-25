@@ -1,26 +1,32 @@
 - hosts: localhost
   tasks:
-    - name: Ensure that git is installed.
-      apt:
-        name: git
+    - name: utils | Ensure that some utils is installed.
+      ansible.builtin.apt:
+        name: "{{ item }}"
       become: yes
-    - name: Ensure that vim is installed.
-      apt:
-        name: vim
-      become: yes
-    - name: Ensure that jq is installed.
-      apt:
-        name: jq
-      become: yes
-    - name: Ensure that mlocate is installed.
-      apt:
+      loop:
+        - git
+        - vim
+        - jq
+
+    - name: utils | Ensure that mlocate is installed.
+      ansible.builtin.apt:
         name: mlocate
       become: yes
-    - name: Ensure that poetry is installed.
+      register: apt_mlocate
+
+    - name: utils | Ensure that mlocate database exists.
+      ansible.builtin.shell:
+        cmd: updatedb
+      become: yes
+      when: apt_mlocate.changed
+
+    - name: Poetry | Ensure that poetry is installed.
       ansible.builtin.shell:
         cmd: curl -sSL https://install.python-poetry.org | python3 -
         creates: "$HOME/.local/bin/poetry"
-    - name: Ensure that poetry path is configured.
+
+    - name: Poetry | Ensure that poetry path is configured.
       ansible.builtin.lineinfile:
         line: 'export PATH="/home/vagrant/.local/bin:$PATH"'
         path: $HOME/.bash_profile
