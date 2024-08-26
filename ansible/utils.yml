@@ -6,6 +6,7 @@
     - git
     - vim
     - jq
+    - yq
     - plocate
 
 - name: utils | Ensure that plocate database exists.
