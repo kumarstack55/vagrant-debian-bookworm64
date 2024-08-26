@@ -24,6 +24,7 @@ git config core.autocrlf input
 
 #vagrant box list
 #vagrant box update --box debian/bookworm64
+vagrant box prune --name debian/bookworm64
 
 vagrant up
 ```
