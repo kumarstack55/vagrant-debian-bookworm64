@@ -26,3 +26,15 @@ print_stacktrace() {
     ((index++))
   done
 }
+
+call_unless_flag_exists() {
+  local flag_path="$1" func_name="$2"
+
+  if [[ -e "${flag_path}" ]]; then
+    return
+  fi
+
+  if (${func_name}); then
+    sudo touch "${flag_path}"
+  fi
+}
