@@ -8,9 +8,16 @@
     - jq
     - yq
     - plocate
+    - etckeeper
 
 - name: utils | Ensure that plocate database exists.
   ansible.builtin.shell:
     cmd: updatedb
     creates: /var/lib/plocate/plocate.db
+  become: yes
+
+- name: utils | Ensure that etckeeper is initialized.
+  ansible.builtin.shell:
+    cmd: etckeeper init
+    creates: /etc/.etckeeper
   become: yes

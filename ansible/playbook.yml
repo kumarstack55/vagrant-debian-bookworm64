@@ -1,6 +1,0 @@
-- hosts: localhost
-  tasks:
-    - ansible.builtin.import_tasks:
-        file: utils.yml
-    - ansible.builtin.import_tasks:
-        file: poetry.yml

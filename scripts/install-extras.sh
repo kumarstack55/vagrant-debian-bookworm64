@@ -10,5 +10,6 @@ sudo apt-get install ansible -y || die
 (
   export ANSIBLE_LOCALHOST_WARNING=False
   export ANSIBLE_INVENTORY_UNPARSED_WARNING=False
-  ansible-playbook --diff /vagrant/ansible/playbook.yml
+  cd /vagrant/ansible
+  ansible-playbook --diff site.yml
 ) || die
