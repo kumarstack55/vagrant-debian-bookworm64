@@ -4,6 +4,7 @@
   become: yes
   loop:
     - git
+    - curl
     - vim
     - jq
     - yq
