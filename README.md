@@ -46,6 +46,12 @@ sudo dpkg-reconfigure keyboard-configuration
             - Screen Blank: Never
             - Automatic Suspend: Off
 
+### GNOME でキーボードを設定する
+
+- Settings
+    - Keyboard
+        - Input Sources: Japanese
+
 ## LICENSE
 
 MIT
