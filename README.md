@@ -38,6 +38,14 @@ sudo dpkg-reconfigure keyboard-configuration
     # Generic 105-key PC - Japanese
 ```
 
+### GNOME でスクリーンロックやサスペンドしないようにする
+
+- Settings
+    - Power
+        - Power Saving Options
+            - Screen Blank: Never
+            - Automatic Suspend: Off
+
 ## LICENSE
 
 MIT
