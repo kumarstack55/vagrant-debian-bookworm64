@@ -1,4 +1,4 @@
-# vagrant-debian-bookworm64-docker
+# vagrant-debian-bookworm64
 
 ## 要件
 
@@ -8,8 +8,8 @@
 ## インストール
 
 ```bash
-git clone https://github.com/kumarstack55/vagrant-debian-bookworm64-docker.git
-Set-Location .\vagrant-debian-bookworm64-docker
+git clone https://github.com/kumarstack55/vagrant-debian-bookworm64.git
+Set-Location .\vagrant-debian-bookworm64
 
 # リポジトリへ格納時 crlf を lf に変換し、リポジトリから取得時に変換しない。
 # 理由:
