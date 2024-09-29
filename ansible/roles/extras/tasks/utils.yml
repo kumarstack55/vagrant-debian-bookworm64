@@ -6,6 +6,8 @@
     - git
     - curl
     - vim
+    - universal-ctags
+    - shellcheck
     - jq
     - yq
     - plocate
